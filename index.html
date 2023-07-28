@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider & Button Clicks & Demo</title>
+    <style>
+        /* Add your custom CSS styles here */
+
+        #root{
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .button-container{
+            text-align: center;
+        }
+
+        .slider-container {
+            max-width: 600px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slider-images {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+            /* Set a fixed height for the slider images */
+            height: 500px;
+        }
+
+        .slider-image {
+            flex: 0 0 100%;
+            /* Set the object-fit property to cover for uniform sizing */
+            object-fit: cover;
+            height: 100%;
+        }
+
+        /* Buttons for next and previous images */
+        .slider-controls {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .slider-control-dots {
+            display: inline-block;
+            margin: 0 5px;
+            cursor: pointer;
+            width: 12px;
+            height: 12px;
+            border-radius: 24px;
+            border: 1px solid rgb(0, 0, 0);
+            background: rgba(0, 0, 0, 0);
+            cursor: pointer;
+            box-shadow: 0px 8px 11px rgba(0, 0, 0, .50);
+        }
+
+        /* Style for the selected dot */
+        .slider-control-dots.active {
+            background-color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <h1>Image Slider & Button Clicks Demo</h1>
+        <!-- Image Slider Section -->
+        <div class="slider-container">
+            <h2>Image Slider</h2>
+            <div class="slider-images">
+                <img src="images/dog.jpg" alt="Image 1" class="slider-image" />
+                <img src="images/cat.jpg" alt="Image 2" class="slider-image" />
+                <img src="images/bear.jpg" alt="Image 3" class="slider-image" />
+            </div>
+        </div>
+
+        <!-- Slider Controls -->
+        <div class="slider-controls">
+            <span class="slider-control-dots" onclick="showSlide(1)"></span>
+            <span class="slider-control-dots" onclick="showSlide(2)"></span>
+            <span class="slider-control-dots" onclick="showSlide(3)"></span>
+        </div>
+
+        <!-- Button Section -->
+        <div class="button-container">
+            <h2>Button Clicks</h2>
+            <div class="buttons">
+                <button id="button1" onclick="handleButtonClick('Button 1')">Button 1</button>
+                <button id="button2" onclick="handleButtonClick('Button 2')">Button 2</button>
+            </div>
+            <p id="buttonClickInfo">No button clicked yet.</p>
+        </div>
+
+        <script>
+            // Function to handle button clicks
+            function handleButtonClick(buttonName) {
+                document.getElementById("buttonClickInfo").innerText = "Button clicked: " + buttonName;
+            }
+
+            // Image Slider Logic
+            let slideIndex = 1;
+            let dotIndex = 1;
+            showSlide(slideIndex);
+
+            function showSlide(n) {            
+                let slides = document.getElementsByClassName("slider-image");
+                let dots = document.getElementsByClassName("slider-control-dots");
+
+                slideIndex = n;
+                for (let i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                    dots[i].classList.remove("active");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].classList.add("active");
+                dotIndex = slideIndex;
+            }
+        </script>
+    </div>
+</body>
+</html>
