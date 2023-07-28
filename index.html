@@ -112,7 +112,7 @@
             // Function to show next slide
             function showNextSlide() {
                 let slides = document.getElementsByClassName("slider-image");
-                if (slideIndex > slides.length) {
+                if (slideIndex >= slides.length) {
                     showSlide(1);
                 } else {
                     showSlide(slideIndex + 1);
