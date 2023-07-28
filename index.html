@@ -8,7 +8,7 @@
     <style>
         /* Add your custom CSS styles here */
 
-        #root{
+        #root {
             height: 100%;
             margin: 0;
             padding: 0;
@@ -17,7 +17,7 @@
             text-align: center;
         }
 
-        .button-container{
+        .button-container {
             text-align: center;
         }
 
@@ -33,6 +33,8 @@
             transition: transform 0.3s ease-in-out;
             /* Set a fixed height for the slider images */
             height: 500px;
+            /* Make the container position relative */
+            position: relative;
         }
 
         .slider-image {
@@ -44,8 +46,11 @@
 
         /* Buttons for next and previous images */
         .slider-controls {
-            text-align: center;
-            margin-top: 10px;
+            /* Use absolute positioning to overlay the controls on top of the images */
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .slider-control-dots {
@@ -79,13 +84,13 @@
                 <img src="images/cat.jpg" alt="Image 2" class="slider-image" />
                 <img src="images/bear.jpg" alt="Image 3" class="slider-image" />
             </div>
-        </div>
 
-        <!-- Slider Controls -->
-        <div class="slider-controls">
-            <span class="slider-control-dots" onclick="showSlide(1)"></span>
-            <span class="slider-control-dots" onclick="showSlide(2)"></span>
-            <span class="slider-control-dots" onclick="showSlide(3)"></span>
+            <!-- Slider Controls -->
+            <div class="slider-controls">
+                <span class="slider-control-dots" onclick="showSlide(1)"></span>
+                <span class="slider-control-dots" onclick="showSlide(2)"></span>
+                <span class="slider-control-dots" onclick="showSlide(3)"></span>
+            </div>
         </div>
 
         <!-- Button Section -->
@@ -117,13 +122,13 @@
                 } else {
                     showSlide(slideIndex + 1);
                 }
-                
+
             }
 
             // Set interval to change slide every 5 seconds
             setInterval(showNextSlide, 5000);
 
-            function showSlide(n) {            
+            function showSlide(n) {
                 let slides = document.getElementsByClassName("slider-image");
                 let dots = document.getElementsByClassName("slider-control-dots");
 
