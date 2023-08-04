@@ -5,72 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Slider & Button Clicks & Demo</title>
-    <style>
-        /* Add your custom CSS styles here */
-
-        #root {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .button-container {
-            text-align: center;
-        }
-
-        .slider-container {
-            max-width: 600px;
-            margin: 0 auto;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .slider-images {
-            display: flex;
-            transition: transform 0.3s ease-in-out;
-            /* Set a fixed height for the slider images */
-            height: 500px;
-            /* Make the container position relative */
-            position: relative;
-        }
-
-        .slider-image {
-            flex: 0 0 100%;
-            /* Set the object-fit property to cover for uniform sizing */
-            object-fit: cover;
-            height: 100%;
-        }
-
-        /* Buttons for next and previous images */
-        .slider-controls {
-            /* Use absolute positioning to overlay the controls on top of the images */
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .slider-control-dots {
-            display: inline-block;
-            margin: 0 5px;
-            cursor: pointer;
-            width: 12px;
-            height: 12px;
-            border-radius: 24px;
-            border: 1px solid rgb(0, 0, 0);
-            background: rgba(0, 0, 0, 0);
-            cursor: pointer;
-            box-shadow: 0px 8px 11px rgba(0, 0, 0, .50);
-        }
-
-        /* Style for the selected dot */
-        .slider-control-dots.active {
-            background-color: #000;
-        }
-    </style>
+    <!-- Link CSS file -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
@@ -102,54 +38,8 @@
             </div>
             <p id="buttonClickInfo">No button clicked yet.</p>
         </div>
-
-        <script>
-            // Function to handle button clicks
-            function handleButtonClick(buttonName) {
-                document.getElementById("buttonClickInfo").innerText = "Button clicked: " + buttonName;
-            }
-
-            // Image Slider Logic
-            let slideIndex = 1;
-            let dotIndex = 1;
-            showSlide(slideIndex);
-
-            // Function to show next slide
-            function showNextSlide() {
-                let slides = document.getElementsByClassName("slider-image");
-                if (slideIndex >= slides.length) {
-                    showSlide(1);
-                } else {
-                    showSlide(slideIndex + 1);
-                }
-
-            }
-
-            // Set interval to change slide every 5 seconds
-            setInterval(showNextSlide, 5000);
-
-            function showSlide(n) {
-                let slides = document.getElementsByClassName("slider-image");
-                let dots = document.getElementsByClassName("slider-control-dots");
-
-                if (n > slides.length) {
-                    slideIndex = 1;
-                } else if (n < 1) {
-                    slideIndex = slides.length;
-                } else {
-                    slideIndex = n;
-                }
-
-                slideIndex = n;
-                for (let i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
-                    dots[i].classList.remove("active");
-                }
-                slides[slideIndex - 1].style.display = "block";
-                dots[slideIndex - 1].classList.add("active");
-                dotIndex = slideIndex;
-            }
-        </script>
     </div>
+    <!-- Link JavaScript file -->
+    <script src="js/script.js"></script>
 </body>
 </html>

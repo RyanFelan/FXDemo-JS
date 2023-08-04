@@ -1,0 +1,84 @@
+/* Add your custom CSS styles here */
+
+#root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+button {
+    border: none;
+    background-color: #818181; /* Replace with your desired button color */
+    color: #ffffff; /* Replace with your desired text color */
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #4e4e4e; /* Replace with a slightly darker shade for the hover effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box-shadow on hover */
+}
+
+.slider-container {
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider-images {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    /* Set a fixed height for the slider images */
+    height: 500px;
+    /* Make the container position relative */
+    position: relative;
+}
+
+.slider-image {
+    flex: 0 0 100%;
+    /* Set the object-fit property to cover for uniform sizing */
+    object-fit: cover;
+    height: 100%;
+}
+
+/* Buttons for next and previous images */
+.slider-controls {
+    /* Use absolute positioning to overlay the controls on top of the images */
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.slider-control-dots {
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+    width: 12px;
+    height: 12px;
+    border-radius: 24px;
+    border: 1px solid rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    box-shadow: 0px 8px 11px rgba(0, 0, 0, .50);
+}
+
+/* Style for the selected dot */
+.slider-control-dots.active {
+    background-color: #000;
+}
