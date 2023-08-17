@@ -42,7 +42,6 @@ button:hover {
 
 .slider-images {
     display: flex;
-    transition: transform 0.3s ease-in-out;
     /* Set a fixed height for the slider images */
     height: 500px;
     /* Make the container position relative */
@@ -54,6 +53,7 @@ button:hover {
     /* Set the object-fit property to cover for uniform sizing */
     object-fit: cover;
     height: 100%;
+    width: auto;
 }
 
 /* Buttons for next and previous images */
@@ -82,3 +82,82 @@ button:hover {
 .slider-control-dots.active {
     background-color: #000;
 }
+
+
+.hamburger-icon {
+    position: absolute;
+    top: 5px; /* Adjust the top position as needed */
+    left: 20px; /* Adjust the left position as needed */
+    font-size: 45px; /* Adjust the font size as needed */
+    cursor: pointer;
+    color: #000; /* Set the initial color for the icon */
+    overflow: hidden; /* Hide any overflow to prevent animation glitches */
+    /* Set the initial background color positions for the bars */
+    background-color: #000;
+    background-size: 2000% 100%; /* Use a large value to create the racing effect */
+    background-position: right; /* Change to 'right' for the left position */
+    -webkit-background-clip: text; /* Use the text as a mask for the gradient */
+    background-clip: text; /* Use the text as a mask for the gradient */
+    color: transparent; /* Make the text transparent to reveal the background */
+}
+
+    /* Animate the color moving on hover for the bars */
+    .hamburger-icon:hover {
+    background-position: left; /* Move the background color from left to right */
+    color: #706f6f; /* Set the color for the icon on hover */
+}
+
+
+
+/* Style for navigation */
+nav {
+    position: fixed;
+    top: 65px;
+    left: 10px;
+    display: none;
+    width: 300px;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+    transform-origin: top right; /* Set the transform origin to the top right corner */
+    border-left: 1px solid rgba(0, 0, 0, 0.2); /* Add a left border outline */
+    border-right: 1px solid rgba(0, 0, 0, 0.2); /* Add a right border outline */
+    border-top: 1px solid rgba(0, 0, 0, 0.2); /* Add a top border outline */
+    box-shadow: -5px 0px 10px rgba(0, 0, 0, 0.2); /* Add a box shadow for depth */
+}
+
+nav.open {
+    display: block;
+}
+
+/* Style for navigation links */
+nav a {
+    display: block;
+    padding: 15px 20px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 20px;
+    transition: background-color 0.3s ease-in-out;
+    font-weight: bold;
+}
+
+/* Hover effect for navigation links */
+nav a:hover {
+    background-color: rgba(0, 0, 0, 0.185);
+}
+
+/* Add a separator line between navigation links */
+nav a:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Style for navigation heading (if needed) */
+nav h2 {
+    padding: 20px;
+    margin: 0;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
